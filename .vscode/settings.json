@@ -1,6 +1,10 @@
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "cSpell.words": ["bgcolor"],
+  "editor.tabSize": 2,
+  "prettier.trailingComma": "all",
+  "prettier.singleQuote": true,
   "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },

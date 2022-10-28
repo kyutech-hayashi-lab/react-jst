@@ -1,7 +1,7 @@
 export interface EventInfo {
-    name: string
-    place: string
-    organizer: string
+  name: string;
+  place: string;
+  organizer: string;
 }
 
-export type EventsList = Array<EventInfo>
+export type EventsList = Array<EventInfo>;

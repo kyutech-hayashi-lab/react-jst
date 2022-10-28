@@ -1,7 +1,16 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 
-export default function EventCard(props: { color: string }) {
-  const { color } = props;
-  return <Button variant={color}>Go somewhere</Button>;
+export default function EventCard(props: {
+  color: string;
+  text: string;
+  onClick: () => void;
+}) {
+  const { color, text, onClick } = props;
+
+  return (
+    <Button variant={color} onClick={() => onClick()}>
+      {text}
+    </Button>
+  );
 }

@@ -7,7 +7,10 @@ export interface ActionInterface {
   payload?: any;
 }
 
-export default function eventsReducer(action:ActionInterface, state = initialState.events) {
+export default function eventsReducer(
+  action: ActionInterface,
+  state = initialState.events,
+) {
   switch (action.type) {
     case Actions.FETCH_EVENTS:
       return {
