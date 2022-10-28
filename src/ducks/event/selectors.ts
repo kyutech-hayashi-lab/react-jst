@@ -1,3 +1,3 @@
-import { createSelector } from "reselect";
-
-const eventsSelector = (state:{events:Event}) => state.events;
+export default function eventsSelector(state:{events:Event}) {
+  return state.events;
+}

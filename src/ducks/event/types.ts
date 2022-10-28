@@ -4,4 +4,4 @@ export interface EventInfo {
     organizer: string
 }
 
-export interface EventsList extends Array<EventInfo>{}
+export type EventsList = Array<EventInfo>

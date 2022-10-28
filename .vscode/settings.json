@@ -1,0 +1,10 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "extensions.ignoreRecommendations": false,
+  "npm.packageManager": "npm",
+  "typescript.referencesCodeLens.enabled": true
+}

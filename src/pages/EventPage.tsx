@@ -1,5 +1,6 @@
-export function EventPage() {
-  return (
-    <div>hello world </div>
-  );
+import React from 'react';
+import EventCard from '../components/units/EventCard';
+
+export default function EventPage() {
+  return <EventCard />;
 }

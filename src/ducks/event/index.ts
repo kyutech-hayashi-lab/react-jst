@@ -1,5 +1,7 @@
-import { EventsList } from "./types"
+import { EventsList } from './types';
 
-export const initialState = {
+const initialState = {
   events: [] as EventsList,
-}
+};
+
+export default initialState;

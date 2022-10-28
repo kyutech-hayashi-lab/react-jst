@@ -1,15 +1,21 @@
 import * as Actions from './actions';
-import {initialState} from './index'
+import initialState from '.';
+import { EventsList } from './types';
 
-export const eventsReducer = (state = initialState.events, action:any)  => {
-	switch (action.type) {
-		case Actions.FETCH_EVENTS:
-			return {
-				...state,
-				users: action.payload
-			};
+export interface ActionInterface {
+  type: string;
+  payload?: any;
+}
 
-		default:
-			return state
-	}
-};
+export default function eventsReducer(action:ActionInterface, state = initialState.events) {
+  switch (action.type) {
+    case Actions.FETCH_EVENTS:
+      return {
+        ...state,
+        events: action.payload as EventsList,
+      };
+
+    default:
+      return state;
+  }
+}
