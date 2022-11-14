@@ -3,24 +3,21 @@ import LabelText from '../atoms/LabelText';
 
 export default function EventCard(props: {
   title: string;
-  subscript: string;
+  description: string;
   place: string;
-  dateTime: Date;
+  dateTime: string;
   imgSrc: string;
 }) {
-  const { title, subscript, place, dateTime, imgSrc } = props;
+  const { title, description, place, dateTime, imgSrc } = props;
   return (
-    <div
-      className="container border-bottom p-4 mb-4"
-      style={{ maxWidth: '740px' }}
-    >
+    <div className="container border-bottom p-4 mb-4" style={{ maxWidth: '740px' }}>
       <h1>{title}</h1>
-      <p>{subscript}</p>
+      <p>{description}</p>
       <div className="row">
         <div className="col-md-8 h-100">
           <LabelText label="場所" text={place} />
-          <LabelText label="開催日" text={dateTime.toDateString()} />
-          <LabelText label="開催時間" text={dateTime.toTimeString()} />
+          <LabelText label="開催日" text={dateTime} />
+          <LabelText label="開催時間" text={dateTime} />
         </div>
         <div className="col-md-4 h-100">
           <img
