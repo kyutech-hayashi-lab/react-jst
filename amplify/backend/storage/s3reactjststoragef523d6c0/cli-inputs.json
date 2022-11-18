@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3reactjststoragef523d6c0",
+  "bucketName": "react-jst-storage-f523d6c0",
+  "policyUUID": "9354c2f7",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "READ",
+    "CREATE_AND_UPDATE",
+    "DELETE"
+  ]
+}

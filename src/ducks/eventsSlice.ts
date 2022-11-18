@@ -6,7 +6,7 @@ import { listEvents } from '../graphql/queries';
 
 export const fetchEvents = createAsyncThunk('events/fetchEvents', async () => {
   const eventsQueryRes = (await API.graphql(
-    graphqlOperation(listEvents),
+    graphqlOperation(listEvents, { sortDirection: 'DESC' }),
   )) as GraphQLResult<ListEventsQuery>;
   return eventsQueryRes.data?.listEvents?.items;
 });
@@ -37,4 +37,11 @@ export const eventsSlice = createSlice({
   },
 });
 
+type eventState = ReturnType<typeof eventsSlice.getInitialState>
+export const eventSelector = (state:{events: eventState}) => state.events.events;
+export const eventStatusSelector = (state:{events: eventState}) => state.events.status;
+export const eventSelectorById = (state:
+  {events: eventState}, id: string) => state.events.events.find(
+  (event) => event.id === id,
+);
 export default eventsSlice.reducer;

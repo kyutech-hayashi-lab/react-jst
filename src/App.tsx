@@ -5,6 +5,7 @@ import Header from './components/Header';
 import HomePage from './pages/HomePage';
 import EventFormPage from './pages/EventFormPage';
 import awsmobile from './aws-exports';
+import EventPage from './pages/EventPage';
 
 Amplify.configure(awsmobile);
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/form" element={<EventFormPage />} />
+        <Route path="/event/:id" element={<EventPage />} />
       </Routes>
     </BrowserRouter>
   );
