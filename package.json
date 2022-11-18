@@ -33,6 +33,7 @@
     "@aws-amplify/api": "^4.0.60",
     "@aws-amplify/datastore": "^3.14.3",
     "@aws-amplify/pubsub": "^4.5.10",
+    "@aws-amplify/ui-react": "^3.6.0",
     "@reduxjs/toolkit": "^1.8.6",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
