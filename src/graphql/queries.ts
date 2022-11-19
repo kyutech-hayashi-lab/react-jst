@@ -18,6 +18,8 @@ export const getEvent = /* GraphQL */ `
         name
         latitude
         longitude
+        postCode
+        address
         createdAt
         updatedAt
         _version
@@ -49,6 +51,8 @@ export const listEvents = /* GraphQL */ `
           name
           latitude
           longitude
+          postCode
+          address
         }
         date
         startTime
@@ -107,6 +111,8 @@ export const getPlace = /* GraphQL */ `
       name
       latitude
       longitude
+      postCode
+      address
       createdAt
       updatedAt
       _version
@@ -127,6 +133,8 @@ export const listPlaces = /* GraphQL */ `
         name
         latitude
         longitude
+        postCode
+        address
         createdAt
         updatedAt
         _version
@@ -156,6 +164,8 @@ export const syncPlaces = /* GraphQL */ `
         name
         latitude
         longitude
+        postCode
+        address
         createdAt
         updatedAt
         _version

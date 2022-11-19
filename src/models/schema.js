@@ -65,7 +65,7 @@ export const schema = {
                     "type": {
                         "model": "Place"
                     },
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": [],
                     "association": {
                         "connectionType": "HAS_ONE",
@@ -93,7 +93,7 @@ export const schema = {
                     "name": "eventPlaceId",
                     "isArray": false,
                     "type": "ID",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
                 }
             },
@@ -153,6 +153,20 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
+                "postCode": {
+                    "name": "postCode",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "address": {
+                    "name": "address",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -199,5 +213,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.3.2",
-    "version": "64c8c5c60fc32f8a8cb2e07336a3084f"
+    "version": "b02fb51efc10f557ac7ef4b54a16ce8c"
 };

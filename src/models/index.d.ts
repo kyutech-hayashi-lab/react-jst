@@ -19,10 +19,10 @@ type EagerEvent = {
   readonly startTime: string;
   readonly endTime: string;
   readonly imagePath?: string | null;
-  readonly place?: Place | null;
+  readonly place: Place;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
-  readonly eventPlaceId?: string | null;
+  readonly eventPlaceId: string;
 }
 
 type LazyEvent = {
@@ -34,10 +34,10 @@ type LazyEvent = {
   readonly startTime: string;
   readonly endTime: string;
   readonly imagePath?: string | null;
-  readonly place: AsyncItem<Place | undefined>;
+  readonly place: AsyncItem<Place>;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
-  readonly eventPlaceId?: string | null;
+  readonly eventPlaceId: string;
 }
 
 export declare type Event = LazyLoading extends LazyLoadingDisabled ? EagerEvent : LazyEvent
@@ -51,6 +51,8 @@ type EagerPlace = {
   readonly name: string;
   readonly latitude: number;
   readonly longitude: number;
+  readonly postCode: string;
+  readonly address: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -60,6 +62,8 @@ type LazyPlace = {
   readonly name: string;
   readonly latitude: number;
   readonly longitude: number;
+  readonly postCode: string;
+  readonly address: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

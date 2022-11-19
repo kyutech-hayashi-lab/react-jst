@@ -21,6 +21,8 @@ export const createEvent = /* GraphQL */ `
         name
         latitude
         longitude
+        postCode
+        address
         createdAt
         updatedAt
         _version
@@ -55,6 +57,8 @@ export const updateEvent = /* GraphQL */ `
         name
         latitude
         longitude
+        postCode
+        address
         createdAt
         updatedAt
         _version
@@ -89,6 +93,8 @@ export const deleteEvent = /* GraphQL */ `
         name
         latitude
         longitude
+        postCode
+        address
         createdAt
         updatedAt
         _version
@@ -114,6 +120,8 @@ export const createPlace = /* GraphQL */ `
       name
       latitude
       longitude
+      postCode
+      address
       createdAt
       updatedAt
       _version
@@ -132,6 +140,8 @@ export const updatePlace = /* GraphQL */ `
       name
       latitude
       longitude
+      postCode
+      address
       createdAt
       updatedAt
       _version
@@ -150,6 +160,8 @@ export const deletePlace = /* GraphQL */ `
       name
       latitude
       longitude
+      postCode
+      address
       createdAt
       updatedAt
       _version

@@ -27,21 +27,29 @@ export default function PlaceCreateForm(props) {
     name: undefined,
     latitude: undefined,
     longitude: undefined,
+    postCode: undefined,
+    address: undefined,
   };
   const [name, setName] = React.useState(initialValues.name);
   const [latitude, setLatitude] = React.useState(initialValues.latitude);
   const [longitude, setLongitude] = React.useState(initialValues.longitude);
+  const [postCode, setPostCode] = React.useState(initialValues.postCode);
+  const [address, setAddress] = React.useState(initialValues.address);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setName(initialValues.name);
     setLatitude(initialValues.latitude);
     setLongitude(initialValues.longitude);
+    setPostCode(initialValues.postCode);
+    setAddress(initialValues.address);
     setErrors({});
   };
   const validations = {
     name: [{ type: "Required" }],
     latitude: [{ type: "Required" }],
     longitude: [{ type: "Required" }],
+    postCode: [{ type: "Required" }],
+    address: [{ type: "Required" }],
   };
   const runValidationTasks = async (fieldName, value) => {
     let validationResponse = validateField(value, validations[fieldName]);
@@ -64,6 +72,8 @@ export default function PlaceCreateForm(props) {
           name,
           latitude,
           longitude,
+          postCode,
+          address,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -115,6 +125,8 @@ export default function PlaceCreateForm(props) {
               name: value,
               latitude,
               longitude,
+              postCode,
+              address,
             };
             const result = onChange(modelFields);
             value = result?.name ?? value;
@@ -149,6 +161,8 @@ export default function PlaceCreateForm(props) {
               name,
               latitude: value,
               longitude,
+              postCode,
+              address,
             };
             const result = onChange(modelFields);
             value = result?.latitude ?? value;
@@ -183,6 +197,8 @@ export default function PlaceCreateForm(props) {
               name,
               latitude,
               longitude: value,
+              postCode,
+              address,
             };
             const result = onChange(modelFields);
             value = result?.longitude ?? value;
@@ -196,6 +212,60 @@ export default function PlaceCreateForm(props) {
         errorMessage={errors.longitude?.errorMessage}
         hasError={errors.longitude?.hasError}
         {...getOverrideProps(overrides, "longitude")}
+      ></TextField>
+      <TextField
+        label="Post code"
+        isRequired={true}
+        isReadOnly={false}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              name,
+              latitude,
+              longitude,
+              postCode: value,
+              address,
+            };
+            const result = onChange(modelFields);
+            value = result?.postCode ?? value;
+          }
+          if (errors.postCode?.hasError) {
+            runValidationTasks("postCode", value);
+          }
+          setPostCode(value);
+        }}
+        onBlur={() => runValidationTasks("postCode", postCode)}
+        errorMessage={errors.postCode?.errorMessage}
+        hasError={errors.postCode?.hasError}
+        {...getOverrideProps(overrides, "postCode")}
+      ></TextField>
+      <TextField
+        label="Address"
+        isRequired={true}
+        isReadOnly={false}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              name,
+              latitude,
+              longitude,
+              postCode,
+              address: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.address ?? value;
+          }
+          if (errors.address?.hasError) {
+            runValidationTasks("address", value);
+          }
+          setAddress(value);
+        }}
+        onBlur={() => runValidationTasks("address", address)}
+        errorMessage={errors.address?.errorMessage}
+        hasError={errors.address?.hasError}
+        {...getOverrideProps(overrides, "address")}
       ></TextField>
       <Flex
         justifyContent="space-between"

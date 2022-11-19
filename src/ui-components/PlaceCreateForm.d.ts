@@ -16,11 +16,15 @@ export declare type PlaceCreateFormInputValues = {
     name?: string;
     latitude?: number;
     longitude?: number;
+    postCode?: string;
+    address?: string;
 };
 export declare type PlaceCreateFormValidationValues = {
     name?: ValidationFunction<string>;
     latitude?: ValidationFunction<number>;
     longitude?: ValidationFunction<number>;
+    postCode?: ValidationFunction<string>;
+    address?: ValidationFunction<string>;
 };
 export declare type FormProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type PlaceCreateFormOverridesProps = {
@@ -28,6 +32,8 @@ export declare type PlaceCreateFormOverridesProps = {
     name?: FormProps<TextFieldProps>;
     latitude?: FormProps<TextFieldProps>;
     longitude?: FormProps<TextFieldProps>;
+    postCode?: FormProps<TextFieldProps>;
+    address?: FormProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type PlaceCreateFormProps = React.PropsWithChildren<{
     overrides?: PlaceCreateFormOverridesProps | undefined | null;

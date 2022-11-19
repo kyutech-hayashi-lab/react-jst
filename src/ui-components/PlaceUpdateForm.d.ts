@@ -17,11 +17,15 @@ export declare type PlaceUpdateFormInputValues = {
     name?: string;
     latitude?: number;
     longitude?: number;
+    postCode?: string;
+    address?: string;
 };
 export declare type PlaceUpdateFormValidationValues = {
     name?: ValidationFunction<string>;
     latitude?: ValidationFunction<number>;
     longitude?: ValidationFunction<number>;
+    postCode?: ValidationFunction<string>;
+    address?: ValidationFunction<string>;
 };
 export declare type FormProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type PlaceUpdateFormOverridesProps = {
@@ -29,6 +33,8 @@ export declare type PlaceUpdateFormOverridesProps = {
     name?: FormProps<TextFieldProps>;
     latitude?: FormProps<TextFieldProps>;
     longitude?: FormProps<TextFieldProps>;
+    postCode?: FormProps<TextFieldProps>;
+    address?: FormProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type PlaceUpdateFormProps = React.PropsWithChildren<{
     overrides?: PlaceUpdateFormOverridesProps | undefined | null;
