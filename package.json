@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "@aws-amplify/api": "^4.0.60",
+    "@aws-amplify/cli": "^10.5.0",
     "@aws-amplify/datastore": "^3.14.3",
     "@aws-amplify/pubsub": "^4.5.10",
     "@aws-amplify/ui-react": "^3.6.0",
