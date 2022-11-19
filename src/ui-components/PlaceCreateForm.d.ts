@@ -39,5 +39,5 @@ export declare type PlaceCreateFormProps = React.PropsWithChildren<{
     onCancel?: () => void;
     onChange?: (fields: PlaceCreateFormInputValues) => PlaceCreateFormInputValues;
     onValidate?: PlaceCreateFormValidationValues;
-}>;
+} & React.CSSProperties>;
 export default function PlaceCreateForm(props: PlaceCreateFormProps): React.ReactElement;

@@ -53,5 +53,5 @@ export declare type EventUpdateFormProps = React.PropsWithChildren<{
     onCancel?: () => void;
     onChange?: (fields: EventUpdateFormInputValues) => EventUpdateFormInputValues;
     onValidate?: EventUpdateFormValidationValues;
-}>;
+} & React.CSSProperties>;
 export default function EventUpdateForm(props: EventUpdateFormProps): React.ReactElement;

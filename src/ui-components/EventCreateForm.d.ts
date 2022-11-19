@@ -51,5 +51,5 @@ export declare type EventCreateFormProps = React.PropsWithChildren<{
     onCancel?: () => void;
     onChange?: (fields: EventCreateFormInputValues) => EventCreateFormInputValues;
     onValidate?: EventCreateFormValidationValues;
-}>;
+} & React.CSSProperties>;
 export default function EventCreateForm(props: EventCreateFormProps): React.ReactElement;

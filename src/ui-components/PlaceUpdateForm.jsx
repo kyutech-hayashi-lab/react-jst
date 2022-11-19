@@ -99,8 +99,9 @@ export default function PlaceUpdateForm(props) {
           modelFields = onSubmit(modelFields);
         }
         try {
+          const original = await DataStore.query(Place, id);
           await DataStore.save(
-            Place.copyOf(placeRecord, (updated) => {
+            Place.copyOf(original, (updated) => {
               Object.assign(updated, modelFields);
             })
           );

@@ -41,5 +41,5 @@ export declare type PlaceUpdateFormProps = React.PropsWithChildren<{
     onCancel?: () => void;
     onChange?: (fields: PlaceUpdateFormInputValues) => PlaceUpdateFormInputValues;
     onValidate?: PlaceUpdateFormValidationValues;
-}>;
+} & React.CSSProperties>;
 export default function PlaceUpdateForm(props: PlaceUpdateFormProps): React.ReactElement;

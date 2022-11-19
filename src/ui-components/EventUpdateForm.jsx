@@ -121,8 +121,9 @@ export default function EventUpdateForm(props) {
           modelFields = onSubmit(modelFields);
         }
         try {
+          const original = await DataStore.query(Event, id);
           await DataStore.save(
-            Event.copyOf(eventRecord, (updated) => {
+            Event.copyOf(original, (updated) => {
               Object.assign(updated, modelFields);
             })
           );

@@ -12,9 +12,6 @@
       "AmplifyAppId": "do7a1u1wo7hw"
     },
     "categories": {
-      "api": {
-        "reactjst": {}
-      },
       "auth": {
         "reactjst": {}
       },
