@@ -25,7 +25,12 @@ export default function HomePage() {
   const navigate = useNavigate();
   return (
     <>
-      <div>イベント一覧</div>
+      <img src="/sea.webp" alt="海の画像" style={{ width: '100%', height: '300px' }} />
+      <div style={{ width: '25%', height: '50px', backgroundColor: 'rgba(157,204,224,0.3)' }}>
+        <div style={{ width: '200px', marginLeft: 'auto', padding: '7px' }}>
+          <h3 style={{ fontWeight: 'bold', fontFamily: 'Courier New' }}>event list</h3>
+        </div>
+      </div>
       <div className="d-flex justify-content-center mt-5">
         <div className="row" style={{ width: '90em' }}>
           <div className="col-3">
