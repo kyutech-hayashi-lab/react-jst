@@ -17,6 +17,9 @@
       },
       "storage": {
         "s3reactjststoragef523d6c0": {}
+      },
+      "api": {
+        "reactjst": {}
       }
     }
   }

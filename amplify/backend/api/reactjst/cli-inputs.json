@@ -4,17 +4,14 @@
     "apiName": "reactjst",
     "serviceName": "AppSync",
     "defaultAuthType": {
-      "mode": "AWS_IAM"
+      "mode": "API_KEY",
+      "expirationTime": 365,
+      "apiKeyExpirationDate": "2023-11-19T05:57:05.658Z",
+      "keyDescription": "AKIAX5MT2NAYAUELMVJV"
     },
     "additionalAuthTypes": [
       {
         "mode": "AWS_IAM"
-      },
-      {
-        "mode": "API_KEY",
-        "expirationTime": 7,
-        "apiKeyExpirationDate": "2022-11-26T05:50:35.213Z",
-        "keyDescription": "AKIAX5MT2NAYAUELMVJV"
       }
     ],
     "conflictResolution": {
