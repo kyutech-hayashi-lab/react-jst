@@ -12,7 +12,7 @@ export default function DateSearch(props: {
   return (
     <div
       className="border"
-      style={{ padding: '55px' }}
+      style={{ padding: '45px' }}
     >
       <DatePicker
         locale="ja"

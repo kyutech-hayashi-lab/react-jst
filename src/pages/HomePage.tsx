@@ -27,7 +27,7 @@ export default function HomePage() {
     <>
       <div>イベント一覧</div>
       <div className="d-flex justify-content-center mt-5">
-        <div className="row" style={{ width: '95em' }}>
+        <div className="row" style={{ width: '90em' }}>
           <div className="col-3">
             <DateSearch startDate={startDate} setStartDate={setStartDate} />
           </div>
