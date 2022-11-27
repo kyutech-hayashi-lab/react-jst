@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import LabelBorder from '../components/atoms/LabelBorder';
 import { eventSelector, eventStatusSelector, fetchEvents } from '../ducks/eventsSlice';
@@ -29,9 +28,6 @@ export default function EventPage() {
       <div>
         <div className="d-flex">
           <h1 className="fw-bold">{event?.title}</h1>
-          <div style={{ marginLeft: 'auto' }}>
-            <Button href="https://devel-db.d259mard8ld388.amplifyapp.com/">ゴミ検出アプリ</Button>
-          </div>
         </div>
         <div
           className="m-auto mb-2 border-radius"

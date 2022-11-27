@@ -26,9 +26,9 @@ export default function HomePage() {
   return (
     <>
       <img src="/sea.webp" alt="海の画像" style={{ width: '100%', height: '300px' }} />
-      <div style={{ width: '25%', height: '50px', backgroundColor: 'rgba(157,204,224,0.3)' }}>
-        <div style={{ width: '200px', marginLeft: 'auto', padding: '7px' }}>
-          <h3 style={{ fontWeight: 'bold', fontFamily: 'Courier New' }}>event list</h3>
+      <div style={{ width: '25%', height: '70px', backgroundColor: 'rgba(157,204,224,0.3)' }}>
+        <div style={{ width: '200px', marginLeft: 'auto' }}>
+          <h3 style={{ fontWeight: 'bold', padding: '16px' }}>イベント一覧</h3>
         </div>
       </div>
       <div className="d-flex justify-content-center mt-5">
