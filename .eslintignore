@@ -1,0 +1,7 @@
+.eslintrc.js
+webpack.config.js
+node_modules/
+src/models
+amplify/
+
+amplify-codegen-temp/models
