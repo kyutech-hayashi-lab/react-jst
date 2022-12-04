@@ -10,13 +10,6 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "user": {
-                    "name": "user",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
                 "title": {
                     "name": "title",
                     "isArray": false,
@@ -45,13 +38,6 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "endTime": {
-                    "name": "endTime",
-                    "isArray": false,
-                    "type": "AWSTime",
-                    "isRequired": true,
-                    "attributes": []
-                },
                 "imagePath": {
                     "name": "imagePath",
                     "isArray": false,
@@ -68,9 +54,8 @@ export const schema = {
                     "isRequired": true,
                     "attributes": [],
                     "association": {
-                        "connectionType": "HAS_ONE",
-                        "associatedWith": "id",
-                        "targetName": "eventPlaceId"
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "placeID"
                     }
                 },
                 "createdAt": {
@@ -88,13 +73,6 @@ export const schema = {
                     "isRequired": false,
                     "attributes": [],
                     "isReadOnly": true
-                },
-                "eventPlaceId": {
-                    "name": "eventPlaceId",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
                 }
             },
             "syncable": true,
@@ -103,6 +81,15 @@ export const schema = {
                 {
                     "type": "model",
                     "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byPlace",
+                        "fields": [
+                            "placeID"
+                        ]
+                    }
                 },
                 {
                     "type": "auth",
@@ -167,6 +154,20 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
+                "Event": {
+                    "name": "Event",
+                    "isArray": true,
+                    "type": {
+                        "model": "Event"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "place"
+                    }
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -213,5 +214,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.3.2",
-    "version": "b02fb51efc10f557ac7ef4b54a16ce8c"
+    "version": "723ae3981e07d10814aa82155ac0c5b1"
 };

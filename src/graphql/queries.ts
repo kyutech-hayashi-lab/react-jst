@@ -6,13 +6,12 @@ export const getEvent = /* GraphQL */ `
   query GetEvent($id: ID!) {
     getEvent(id: $id) {
       id
-      user
       title
       description
       date
       startTime
-      endTime
       imagePath
+      placeID
       place {
         id
         name
@@ -31,7 +30,6 @@ export const getEvent = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
-      eventPlaceId
     }
   }
 `;
@@ -44,26 +42,30 @@ export const listEvents = /* GraphQL */ `
     listEvents(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        user
         title
         description
+        date
+        startTime
+        imagePath
+        placeID
         place {
+          id
           name
           latitude
           longitude
           postCode
           address
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
         }
-        date
-        startTime
-        endTime
-        imagePath
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
-        eventPlaceId
       }
       nextToken
       startedAt
@@ -85,19 +87,17 @@ export const syncEvents = /* GraphQL */ `
     ) {
       items {
         id
-        user
         title
         description
         date
         startTime
-        endTime
         imagePath
+        placeID
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
-        eventPlaceId
       }
       nextToken
       startedAt
@@ -113,6 +113,10 @@ export const getPlace = /* GraphQL */ `
       longitude
       postCode
       address
+      Event {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version

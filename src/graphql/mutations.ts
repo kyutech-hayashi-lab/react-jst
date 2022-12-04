@@ -9,13 +9,12 @@ export const createEvent = /* GraphQL */ `
   ) {
     createEvent(input: $input, condition: $condition) {
       id
-      user
       title
       description
       date
       startTime
-      endTime
       imagePath
+      placeID
       place {
         id
         name
@@ -34,7 +33,6 @@ export const createEvent = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
-      eventPlaceId
     }
   }
 `;
@@ -45,13 +43,12 @@ export const updateEvent = /* GraphQL */ `
   ) {
     updateEvent(input: $input, condition: $condition) {
       id
-      user
       title
       description
       date
       startTime
-      endTime
       imagePath
+      placeID
       place {
         id
         name
@@ -70,7 +67,6 @@ export const updateEvent = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
-      eventPlaceId
     }
   }
 `;
@@ -81,13 +77,12 @@ export const deleteEvent = /* GraphQL */ `
   ) {
     deleteEvent(input: $input, condition: $condition) {
       id
-      user
       title
       description
       date
       startTime
-      endTime
       imagePath
+      placeID
       place {
         id
         name
@@ -106,7 +101,6 @@ export const deleteEvent = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
-      eventPlaceId
     }
   }
 `;
@@ -122,6 +116,10 @@ export const createPlace = /* GraphQL */ `
       longitude
       postCode
       address
+      Event {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -142,6 +140,10 @@ export const updatePlace = /* GraphQL */ `
       longitude
       postCode
       address
+      Event {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -162,6 +164,10 @@ export const deletePlace = /* GraphQL */ `
       longitude
       postCode
       address
+      Event {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
