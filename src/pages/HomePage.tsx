@@ -25,7 +25,7 @@ export default function HomePage() {
   const navigate = useNavigate();
   return (
     <>
-      <img src="/sea.webp" alt="海の画像" style={{ width: '100%', height: '300px' }} />
+      <img src="/top-image.png" alt="海の画像" style={{ width: '100%', height: '300px', objectFit: 'cover' }} />
       <div style={{ width: '25%', height: '70px', backgroundColor: 'rgba(157,204,224,0.3)' }}>
         <div style={{ width: '200px', marginLeft: 'auto' }}>
           <h3 style={{ fontWeight: 'bold', padding: '16px' }}>イベント一覧</h3>
@@ -45,7 +45,6 @@ export default function HomePage() {
                 place={event.place.name}
                 date={event.date}
                 startTime={event.startTime}
-                endTime={event.endTime}
                 imgSrc={event.imagePath}
                 onClick={() => { navigate(`/event/${event.id}`); }}
               />

@@ -27,7 +27,7 @@ export default function EventPage() {
     <div className="d-flex justify-content-center my-5">
       <div>
         <div className="d-flex">
-          <h1 className="fw-bold">{event?.title}</h1>
+          <h1 className="fw-bold">{event.title}</h1>
         </div>
         <div
           className="m-auto mb-2 border-radius"
@@ -37,10 +37,10 @@ export default function EventPage() {
             height: '300px',
           }}
         >
-          { event?.imagePath
+          { event.imagePath
       && (
         <img
-          src={event?.imagePath}
+          src={event.imagePath}
           alt="イベント画像"
           style={{
             minWidth: '100%',
@@ -50,9 +50,12 @@ export default function EventPage() {
       )}
         </div>
         <LabelBorder label="説明" />
-        <span>{event?.description}</span>
+        <span>{event.description}</span>
         <LabelBorder label="日時" />
-        <span>{`${event.date} ${event.startTime}〜${event.endTime}`}</span>
+        <span>
+          {event.date}
+          {event.startTime}
+        </span>
         <LabelBorder label="アクセス" />
         <AccessInfo
           place={event.place}

@@ -4,32 +4,28 @@
 
 export type CreateEventInput = {
   id?: string | null,
-  user: string,
   title: string,
   description: string,
   date: string,
   startTime: string,
-  endTime: string,
   imagePath?: string | null,
+  placeID: string,
   _version?: number | null,
-  eventPlaceId: string,
 };
 
 export type ModelEventConditionInput = {
-  user?: ModelIDInput | null,
   title?: ModelStringInput | null,
   description?: ModelStringInput | null,
   date?: ModelStringInput | null,
   startTime?: ModelStringInput | null,
-  endTime?: ModelStringInput | null,
   imagePath?: ModelStringInput | null,
+  placeID?: ModelIDInput | null,
   and?: Array< ModelEventConditionInput | null > | null,
   or?: Array< ModelEventConditionInput | null > | null,
   not?: ModelEventConditionInput | null,
-  eventPlaceId?: ModelIDInput | null,
 };
 
-export type ModelIDInput = {
+export type ModelStringInput = {
   ne?: string | null,
   eq?: string | null,
   le?: string | null,
@@ -69,7 +65,7 @@ export type ModelSizeInput = {
   between?: Array< number | null > | null,
 };
 
-export type ModelStringInput = {
+export type ModelIDInput = {
   ne?: string | null,
   eq?: string | null,
   le?: string | null,
@@ -88,20 +84,18 @@ export type ModelStringInput = {
 export type Event = {
   __typename: "Event",
   id: string,
-  user: string,
   title: string,
   description: string,
   date: string,
   startTime: string,
-  endTime: string,
   imagePath?: string | null,
+  placeID: string,
   place: Place,
   createdAt: string,
   updatedAt: string,
   _version: number,
   _deleted?: boolean | null,
   _lastChangedAt: number,
-  eventPlaceId: string,
 };
 
 export type Place = {
@@ -112,6 +106,7 @@ export type Place = {
   longitude: number,
   postCode: string,
   address: string,
+  Event?: ModelEventConnection | null,
   createdAt: string,
   updatedAt: string,
   _version: number,
@@ -119,17 +114,22 @@ export type Place = {
   _lastChangedAt: number,
 };
 
+export type ModelEventConnection = {
+  __typename: "ModelEventConnection",
+  items:  Array<Event | null >,
+  nextToken?: string | null,
+  startedAt?: number | null,
+};
+
 export type UpdateEventInput = {
   id: string,
-  user?: string | null,
   title?: string | null,
   description?: string | null,
   date?: string | null,
   startTime?: string | null,
-  endTime?: string | null,
   imagePath?: string | null,
+  placeID?: string | null,
   _version?: number | null,
-  eventPlaceId: string,
 };
 
 export type DeleteEventInput = {
@@ -187,24 +187,15 @@ export type DeletePlaceInput = {
 
 export type ModelEventFilterInput = {
   id?: ModelIDInput | null,
-  user?: ModelIDInput | null,
   title?: ModelStringInput | null,
   description?: ModelStringInput | null,
   date?: ModelStringInput | null,
   startTime?: ModelStringInput | null,
-  endTime?: ModelStringInput | null,
   imagePath?: ModelStringInput | null,
+  placeID?: ModelIDInput | null,
   and?: Array< ModelEventFilterInput | null > | null,
   or?: Array< ModelEventFilterInput | null > | null,
   not?: ModelEventFilterInput | null,
-  eventPlaceId?: ModelIDInput | null,
-};
-
-export type ModelEventConnection = {
-  __typename: "ModelEventConnection",
-  items:  Array<Event | null >,
-  nextToken?: string | null,
-  startedAt?: number | null,
 };
 
 export type ModelPlaceFilterInput = {
@@ -228,13 +219,12 @@ export type ModelPlaceConnection = {
 
 export type ModelSubscriptionEventFilterInput = {
   id?: ModelSubscriptionIDInput | null,
-  user?: ModelSubscriptionIDInput | null,
   title?: ModelSubscriptionStringInput | null,
   description?: ModelSubscriptionStringInput | null,
   date?: ModelSubscriptionStringInput | null,
   startTime?: ModelSubscriptionStringInput | null,
-  endTime?: ModelSubscriptionStringInput | null,
   imagePath?: ModelSubscriptionStringInput | null,
+  placeID?: ModelSubscriptionIDInput | null,
   and?: Array< ModelSubscriptionEventFilterInput | null > | null,
   or?: Array< ModelSubscriptionEventFilterInput | null > | null,
 };
@@ -301,13 +291,12 @@ export type CreateEventMutation = {
   createEvent?:  {
     __typename: "Event",
     id: string,
-    user: string,
     title: string,
     description: string,
     date: string,
     startTime: string,
-    endTime: string,
     imagePath?: string | null,
+    placeID: string,
     place:  {
       __typename: "Place",
       id: string,
@@ -327,7 +316,6 @@ export type CreateEventMutation = {
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
-    eventPlaceId: string,
   } | null,
 };
 
@@ -340,13 +328,12 @@ export type UpdateEventMutation = {
   updateEvent?:  {
     __typename: "Event",
     id: string,
-    user: string,
     title: string,
     description: string,
     date: string,
     startTime: string,
-    endTime: string,
     imagePath?: string | null,
+    placeID: string,
     place:  {
       __typename: "Place",
       id: string,
@@ -366,7 +353,6 @@ export type UpdateEventMutation = {
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
-    eventPlaceId: string,
   } | null,
 };
 
@@ -379,13 +365,12 @@ export type DeleteEventMutation = {
   deleteEvent?:  {
     __typename: "Event",
     id: string,
-    user: string,
     title: string,
     description: string,
     date: string,
     startTime: string,
-    endTime: string,
     imagePath?: string | null,
+    placeID: string,
     place:  {
       __typename: "Place",
       id: string,
@@ -405,7 +390,6 @@ export type DeleteEventMutation = {
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
-    eventPlaceId: string,
   } | null,
 };
 
@@ -423,6 +407,11 @@ export type CreatePlaceMutation = {
     longitude: number,
     postCode: string,
     address: string,
+    Event?:  {
+      __typename: "ModelEventConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -445,6 +434,11 @@ export type UpdatePlaceMutation = {
     longitude: number,
     postCode: string,
     address: string,
+    Event?:  {
+      __typename: "ModelEventConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -467,6 +461,11 @@ export type DeletePlaceMutation = {
     longitude: number,
     postCode: string,
     address: string,
+    Event?:  {
+      __typename: "ModelEventConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -483,13 +482,12 @@ export type GetEventQuery = {
   getEvent?:  {
     __typename: "Event",
     id: string,
-    user: string,
     title: string,
     description: string,
     date: string,
     startTime: string,
-    endTime: string,
     imagePath?: string | null,
+    placeID: string,
     place:  {
       __typename: "Place",
       id: string,
@@ -509,7 +507,6 @@ export type GetEventQuery = {
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
-    eventPlaceId: string,
   } | null,
 };
 
@@ -525,26 +522,17 @@ export type ListEventsQuery = {
     items:  Array< {
       __typename: "Event",
       id: string,
-      user: string,
       title: string,
       description: string,
-      place: {
-        name: string,
-        latitude: number,
-        longitude: number,
-        postCode: string,
-        address: string
-      },
       date: string,
       startTime: string,
-      endTime: string,
       imagePath?: string | null,
+      placeID: string,
       createdAt: string,
       updatedAt: string,
       _version: number,
       _deleted?: boolean | null,
       _lastChangedAt: number,
-      eventPlaceId: string,
     } | null >,
     nextToken?: string | null,
     startedAt?: number | null,
@@ -564,19 +552,17 @@ export type SyncEventsQuery = {
     items:  Array< {
       __typename: "Event",
       id: string,
-      user: string,
       title: string,
       description: string,
       date: string,
       startTime: string,
-      endTime: string,
       imagePath?: string | null,
+      placeID: string,
       createdAt: string,
       updatedAt: string,
       _version: number,
       _deleted?: boolean | null,
       _lastChangedAt: number,
-      eventPlaceId: string,
     } | null >,
     nextToken?: string | null,
     startedAt?: number | null,
@@ -596,6 +582,11 @@ export type GetPlaceQuery = {
     longitude: number,
     postCode: string,
     address: string,
+    Event?:  {
+      __typename: "ModelEventConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -669,13 +660,12 @@ export type OnCreateEventSubscription = {
   onCreateEvent?:  {
     __typename: "Event",
     id: string,
-    user: string,
     title: string,
     description: string,
     date: string,
     startTime: string,
-    endTime: string,
     imagePath?: string | null,
+    placeID: string,
     place:  {
       __typename: "Place",
       id: string,
@@ -695,7 +685,6 @@ export type OnCreateEventSubscription = {
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
-    eventPlaceId: string,
   } | null,
 };
 
@@ -707,13 +696,12 @@ export type OnUpdateEventSubscription = {
   onUpdateEvent?:  {
     __typename: "Event",
     id: string,
-    user: string,
     title: string,
     description: string,
     date: string,
     startTime: string,
-    endTime: string,
     imagePath?: string | null,
+    placeID: string,
     place:  {
       __typename: "Place",
       id: string,
@@ -733,7 +721,6 @@ export type OnUpdateEventSubscription = {
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
-    eventPlaceId: string,
   } | null,
 };
 
@@ -745,13 +732,12 @@ export type OnDeleteEventSubscription = {
   onDeleteEvent?:  {
     __typename: "Event",
     id: string,
-    user: string,
     title: string,
     description: string,
     date: string,
     startTime: string,
-    endTime: string,
     imagePath?: string | null,
+    placeID: string,
     place:  {
       __typename: "Place",
       id: string,
@@ -771,7 +757,6 @@ export type OnDeleteEventSubscription = {
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
-    eventPlaceId: string,
   } | null,
 };
 
@@ -788,6 +773,11 @@ export type OnCreatePlaceSubscription = {
     longitude: number,
     postCode: string,
     address: string,
+    Event?:  {
+      __typename: "ModelEventConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -809,6 +799,11 @@ export type OnUpdatePlaceSubscription = {
     longitude: number,
     postCode: string,
     address: string,
+    Event?:  {
+      __typename: "ModelEventConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -830,6 +825,11 @@ export type OnDeletePlaceSubscription = {
     longitude: number,
     postCode: string,
     address: string,
+    Event?:  {
+      __typename: "ModelEventConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
     _version: number,

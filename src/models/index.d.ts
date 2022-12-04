@@ -1,6 +1,6 @@
 import { ModelInit, MutableModel } from "@aws-amplify/datastore";
 // @ts-ignore
-import { LazyLoading, LazyLoadingDisabled, AsyncItem } from "@aws-amplify/datastore";
+import { LazyLoading, LazyLoadingDisabled, AsyncItem, AsyncCollection } from "@aws-amplify/datastore";
 
 type EventMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
@@ -12,32 +12,26 @@ type PlaceMetaData = {
 
 type EagerEvent = {
   readonly id: string;
-  readonly user: string;
   readonly title: string;
   readonly description: string;
   readonly date: string;
   readonly startTime: string;
-  readonly endTime: string;
   readonly imagePath?: string | null;
   readonly place: Place;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
-  readonly eventPlaceId: string;
 }
 
 type LazyEvent = {
   readonly id: string;
-  readonly user: string;
   readonly title: string;
   readonly description: string;
   readonly date: string;
   readonly startTime: string;
-  readonly endTime: string;
   readonly imagePath?: string | null;
   readonly place: AsyncItem<Place>;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
-  readonly eventPlaceId: string;
 }
 
 export declare type Event = LazyLoading extends LazyLoadingDisabled ? EagerEvent : LazyEvent
@@ -53,6 +47,7 @@ type EagerPlace = {
   readonly longitude: number;
   readonly postCode: string;
   readonly address: string;
+  readonly Event?: (Event | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -64,6 +59,7 @@ type LazyPlace = {
   readonly longitude: number;
   readonly postCode: string;
   readonly address: string;
+  readonly Event: AsyncCollection<Event>;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

@@ -22,9 +22,8 @@ export default function EventForm() {
     description: '',
     date: '',
     startTime: '',
-    endTime: '',
     imagePath: 'https://hoge.com',
-    eventPlaceId: '',
+    placeID: '',
   });
 
   return (
@@ -69,15 +68,6 @@ export default function EventForm() {
             onChange={(e) => setEvent({ ...event, startTime: e.target.value })}
             type="time"
             placeholder="開始時刻を選択してください"
-          />
-        </Form.Group>
-        <Form.Group className="mb-2" controlId="endTime">
-          <Form.Label>終了時刻</Form.Label>
-          <Form.Control
-            value={event.endTime}
-            onChange={(e) => setEvent({ ...event, endTime: e.target.value })}
-            type="time"
-            placeholder="終了時刻を選択してください"
           />
         </Form.Group>
         <Form.Group className="mb-2" controlId="formFile">

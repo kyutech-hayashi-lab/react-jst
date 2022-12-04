@@ -7,11 +7,10 @@ export default function EventCard(props: {
   place: string;
   date: string;
   startTime: string;
-  endTime: string;
   imgSrc: string | null | undefined;
   onClick: ()=>void;
 }) {
-  const { title, description, place, date, startTime, endTime, imgSrc, onClick } = props;
+  const { title, description, place, date, startTime, imgSrc, onClick } = props;
   const [color, setColor] = useState('white');
 
   return (
@@ -48,7 +47,7 @@ export default function EventCard(props: {
         <div className="h-100">
           <LabelText label="場所" text={place} />
           <LabelText label="開催日" text={date} />
-          <LabelText label="開催時間" text={`${startTime}~${endTime}`} />
+          <LabelText label="開催時間" text={startTime} />
         </div>
       </div>
     </div>

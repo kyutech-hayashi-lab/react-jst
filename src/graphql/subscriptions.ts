@@ -6,13 +6,12 @@ export const onCreateEvent = /* GraphQL */ `
   subscription OnCreateEvent($filter: ModelSubscriptionEventFilterInput) {
     onCreateEvent(filter: $filter) {
       id
-      user
       title
       description
       date
       startTime
-      endTime
       imagePath
+      placeID
       place {
         id
         name
@@ -31,7 +30,6 @@ export const onCreateEvent = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
-      eventPlaceId
     }
   }
 `;
@@ -39,13 +37,12 @@ export const onUpdateEvent = /* GraphQL */ `
   subscription OnUpdateEvent($filter: ModelSubscriptionEventFilterInput) {
     onUpdateEvent(filter: $filter) {
       id
-      user
       title
       description
       date
       startTime
-      endTime
       imagePath
+      placeID
       place {
         id
         name
@@ -64,7 +61,6 @@ export const onUpdateEvent = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
-      eventPlaceId
     }
   }
 `;
@@ -72,13 +68,12 @@ export const onDeleteEvent = /* GraphQL */ `
   subscription OnDeleteEvent($filter: ModelSubscriptionEventFilterInput) {
     onDeleteEvent(filter: $filter) {
       id
-      user
       title
       description
       date
       startTime
-      endTime
       imagePath
+      placeID
       place {
         id
         name
@@ -97,7 +92,6 @@ export const onDeleteEvent = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
-      eventPlaceId
     }
   }
 `;
@@ -110,6 +104,10 @@ export const onCreatePlace = /* GraphQL */ `
       longitude
       postCode
       address
+      Event {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -127,6 +125,10 @@ export const onUpdatePlace = /* GraphQL */ `
       longitude
       postCode
       address
+      Event {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -144,6 +146,10 @@ export const onDeletePlace = /* GraphQL */ `
       longitude
       postCode
       address
+      Event {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
