@@ -2,5 +2,5 @@
   "AppSyncApiName": "reactjst",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
   "DynamoDBEnableServerSideEncryption": false,
-  "AuthModeLastUpdated": "2022-11-19T14:04:48.995Z"
+  "AuthModeLastUpdated": "2023-01-20T03:53:35.771Z"
 }

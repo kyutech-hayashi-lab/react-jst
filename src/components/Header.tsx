@@ -10,7 +10,7 @@ export default function Header() {
         <Navbar.Brand href="/">ビーチクリーンクラウドサービス</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
-          <Nav.Link className="text-black me-4" href="https://devel-db.d259mard8ld388.amplifyapp.com/">
+          <Nav.Link className="text-black me-4" href="https://devel.d259mard8ld388.amplifyapp.com">
             ゴミ検出アプリ
           </Nav.Link>
           <Nav.Link className="text-black" href="/form">
