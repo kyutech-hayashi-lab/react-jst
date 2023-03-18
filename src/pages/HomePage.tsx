@@ -10,7 +10,7 @@ export default function HomePage() {
   const events = useAppSelector(eventSelector);
   const eventsSorted = [...events];
   eventsSorted.sort((a, b) => {
-    if (a.date < b.date) {
+    if (a.date > b.date) {
       return -1;
     }
     return 1;
