@@ -4,6 +4,7 @@ import EventCard from '../components/units/EventCard';
 import DateSearch from '../components/DateSearch';
 import { eventSelector, eventStatusSelector, fetchEvents } from '../ducks/eventsSlice';
 import { useAppDispatch, useAppSelector } from '../ducks/hooks';
+import Header from '../components/Header';
 
 export default function HomePage() {
   const dispatch = useAppDispatch();
@@ -25,12 +26,7 @@ export default function HomePage() {
   const navigate = useNavigate();
   return (
     <>
-      <img src="/top-image.png" alt="海の画像" style={{ width: '100%', height: '300px', objectFit: 'cover' }} />
-      <div style={{ width: '25%', height: '70px', backgroundColor: 'rgba(157,204,224,0.3)' }}>
-        <div style={{ width: '200px', marginLeft: 'auto' }}>
-          <h3 style={{ fontWeight: 'bold', padding: '16px' }}>イベント一覧</h3>
-        </div>
-      </div>
+      <Header />
       <div className="d-flex justify-content-center mt-5">
         <div className="row" style={{ width: '90em' }}>
           <div className="col-3">
