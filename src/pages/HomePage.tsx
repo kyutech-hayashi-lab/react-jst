@@ -28,11 +28,11 @@ export default function HomePage() {
     <>
       <Header />
       <div className="d-flex justify-content-center mt-5">
-        <div className="row" style={{ width: '90em' }}>
-          <div className="col-3">
-            <DateSearch startDate={startDate} setStartDate={setStartDate} />
+        <div className="row pt-5 mt-5" style={{ width: '90em' }}>
+          <div className="col-4">
+            <DateSearch className="ms-5 position-fixed" startDate={startDate} setStartDate={setStartDate} />
           </div>
-          <div className="col-9">
+          <div className="col-8">
             {eventsSorted.map((event) => (
               <EventCard
                 key={event.id}
@@ -40,8 +40,6 @@ export default function HomePage() {
                 description={event.description}
                 place={event.place.name}
                 date={event.date}
-                startTime={event.startTime}
-                imgSrc={event.imagePath}
                 onClick={() => { navigate(`/event/${event.id}`); }}
               />
             ))}

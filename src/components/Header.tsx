@@ -8,7 +8,7 @@ export default function Header() {
     background: 'transparent',
   };
   return (
-    <div className="d-flex px-2 border-bottom border-2">
+    <div className="d-flex px-2 border-bottom border-2 position-fixed w-100 bg-white top-0">
       <h3 className="mt-4 ms-5"><strong>ビーチクリーンクラウドサービス</strong></h3>
       <div className="ms-auto me-4 mt-3">
         <a href="/" className="text-dark me-3">イベント主催者はこちら</a>

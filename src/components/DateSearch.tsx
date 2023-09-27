@@ -8,13 +8,15 @@ import prefectures from '../modules/prefectures';
 export default function DateSearch(props: {
   startDate: Date,
   setStartDate: (date: Date) => void
+  // eslint-disable-next-line react/require-default-props
+  className?: string
 }) {
-  const { startDate, setStartDate } = props;
+  const { startDate, className = '', setStartDate } = props;
   registerLocale('ja', ja);
 
   const inputStyle = {
     height: 37,
-    width: 200,
+    width: 160,
     borderWidth: 0.5,
     borderRadius: 5,
   };
@@ -24,9 +26,9 @@ export default function DateSearch(props: {
   };
 
   return (
-    <div className="border">
-      <div className="mt-4 mx-auto d-flex align-items-center" style={{ width: '300px' }}>
-        <span style={searchTitle}>都道府県</span>
+    <div className={className} style={{ width: '242px' }}>
+      <div className="mt-4 mx-auto d-flex align-items-center" style={{ width: '242px' }}>
+        <span style={searchTitle}><small>都道府県</small></span>
 
         {(() => {
           const prefecturesOption: JSX.Element[] = [
