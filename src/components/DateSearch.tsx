@@ -46,7 +46,7 @@ export default function DateSearch(props: {
           for (let i = 0; i < prefectures.length; i += 1) {
             prefecturesOption.push(<option>{prefectures[i]}</option>);
           }
-          return <select className="ms-3" style={inputStyle} defaultValue={pref} onChange={(v) => setPref(v.target.value)}>{prefecturesOption}</select>;
+          return <select className="ms-3" style={inputStyle} value={pref} onChange={(v) => setPref(v.target.value)}>{prefecturesOption}</select>;
         })()}
 
       </div>
