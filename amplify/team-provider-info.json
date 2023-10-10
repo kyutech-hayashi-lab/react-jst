@@ -1,26 +1,15 @@
 {
-  "staging": {
+  "takemoto": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-amplify87386800e5034-staging-50145-authRole",
-      "UnauthRoleArn": "arn:aws:iam::544160245808:role/amplify-amplify87386800e5034-staging-50145-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::544160245808:role/amplify-amplify87386800e5034-staging-50145-authRole",
+      "AuthRoleName": "amplify-bccapp-takemoto-45624-authRole",
+      "UnauthRoleArn": "arn:aws:iam::544160245808:role/amplify-bccapp-takemoto-45624-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::544160245808:role/amplify-bccapp-takemoto-45624-authRole",
       "Region": "ap-northeast-1",
-      "DeploymentBucketName": "amplify-amplify87386800e5034-staging-50145-deployment",
-      "UnauthRoleName": "amplify-amplify87386800e5034-staging-50145-unauthRole",
-      "StackName": "amplify-amplify87386800e5034-staging-50145",
-      "StackId": "arn:aws:cloudformation:ap-northeast-1:544160245808:stack/amplify-amplify87386800e5034-staging-50145/1e688ff0-58d9-11ed-893d-06f325050733",
-      "AmplifyAppId": "do7a1u1wo7hw"
-    },
-    "categories": {
-      "auth": {
-        "reactjst": {}
-      },
-      "storage": {
-        "s3reactjststoragef523d6c0": {}
-      },
-      "api": {
-        "reactjst": {}
-      }
+      "DeploymentBucketName": "amplify-bccapp-takemoto-45624-deployment",
+      "UnauthRoleName": "amplify-bccapp-takemoto-45624-unauthRole",
+      "StackName": "amplify-bccapp-takemoto-45624",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:544160245808:stack/amplify-bccapp-takemoto-45624/5d3860c0-6729-11ee-9e58-0a99c3b7c389",
+      "AmplifyAppId": "d259mard8ld388"
     }
   }
 }

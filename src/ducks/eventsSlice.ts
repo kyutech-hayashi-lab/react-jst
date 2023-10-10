@@ -47,7 +47,7 @@ export const eventFilteredSelector = (
   date: Date | null,
 ) => state.events.events.filter(
   (event) => {
-    const eventPref = event.place.address.replace(/^(.{2}[都道府県]|.{3}県)(.+)/, '$1 $2').split(' ')[0];
+    const eventPref = event.Place.address.replace(/^(.{2}[都道府県]|.{3}県)(.+)/, '$1 $2').split(' ')[0];
     // prefが選択ない場合と選択したprefと同じ場合true
     const isSamePref = !pref || eventPref === pref;
     const isSameDate = !date || event.date === format(date, 'yyyy-MM-dd');

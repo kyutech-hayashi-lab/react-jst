@@ -58,7 +58,7 @@ export default function EventPage() {
         </span>
         <LabelBorder label="アクセス" />
         <AccessInfo
-          place={event.place}
+          place={event.Place}
         />
       </div>
     </div>

@@ -10,9 +10,8 @@ export const getEvent = /* GraphQL */ `
       description
       date
       startTime
-      imagePath
       placeID
-      place {
+      Place {
         id
         name
         latitude
@@ -46,9 +45,8 @@ export const listEvents = /* GraphQL */ `
         description
         date
         startTime
-        imagePath
         placeID
-        place {
+        Place {
           id
           name
           latitude
@@ -91,7 +89,6 @@ export const syncEvents = /* GraphQL */ `
         description
         date
         startTime
-        imagePath
         placeID
         createdAt
         updatedAt

@@ -90,7 +90,7 @@ export type Event = {
   startTime: string,
   imagePath?: string | null,
   placeID: string,
-  place: Place,
+  Place: Place,
   createdAt: string,
   updatedAt: string,
   _version: number,
@@ -297,7 +297,7 @@ export type CreateEventMutation = {
     startTime: string,
     imagePath?: string | null,
     placeID: string,
-    place:  {
+    Place:  {
       __typename: "Place",
       id: string,
       name: string,
@@ -334,7 +334,7 @@ export type UpdateEventMutation = {
     startTime: string,
     imagePath?: string | null,
     placeID: string,
-    place:  {
+    Place:  {
       __typename: "Place",
       id: string,
       name: string,
@@ -371,7 +371,7 @@ export type DeleteEventMutation = {
     startTime: string,
     imagePath?: string | null,
     placeID: string,
-    place:  {
+    Place:  {
       __typename: "Place",
       id: string,
       name: string,
@@ -488,7 +488,7 @@ export type GetEventQuery = {
     startTime: string,
     imagePath?: string | null,
     placeID: string,
-    place:  {
+    Place:  {
       __typename: "Place",
       id: string,
       name: string,
@@ -666,7 +666,7 @@ export type OnCreateEventSubscription = {
     startTime: string,
     imagePath?: string | null,
     placeID: string,
-    place:  {
+    Place:  {
       __typename: "Place",
       id: string,
       name: string,
@@ -702,7 +702,7 @@ export type OnUpdateEventSubscription = {
     startTime: string,
     imagePath?: string | null,
     placeID: string,
-    place:  {
+    Place:  {
       __typename: "Place",
       id: string,
       name: string,
@@ -738,7 +738,7 @@ export type OnDeleteEventSubscription = {
     startTime: string,
     imagePath?: string | null,
     placeID: string,
-    place:  {
+    Place:  {
       __typename: "Place",
       id: string,
       name: string,

@@ -39,7 +39,7 @@ export default function HomePage() {
                 key={event.id}
                 title={event.title}
                 description={event.description}
-                place={event.place.name}
+                place={event.Place.name}
                 date={event.date}
                 onClick={() => { navigate(`/event/${event.id}`); }}
               />

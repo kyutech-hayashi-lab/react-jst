@@ -10,9 +10,8 @@ export const onCreateEvent = /* GraphQL */ `
       description
       date
       startTime
-      imagePath
       placeID
-      place {
+      Place {
         id
         name
         latitude
@@ -41,9 +40,8 @@ export const onUpdateEvent = /* GraphQL */ `
       description
       date
       startTime
-      imagePath
       placeID
-      place {
+      Place {
         id
         name
         latitude
@@ -72,9 +70,8 @@ export const onDeleteEvent = /* GraphQL */ `
       description
       date
       startTime
-      imagePath
       placeID
-      place {
+      Place {
         id
         name
         latitude

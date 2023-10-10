@@ -41,10 +41,10 @@ export default function DateSearch(props: {
 
         {(() => {
           const prefecturesOption: JSX.Element[] = [
-            <option value="">都道府県を選択</option>,
+            <option value="" key={0}>都道府県を選択</option>,
           ];
           for (let i = 0; i < prefectures.length; i += 1) {
-            prefecturesOption.push(<option>{prefectures[i]}</option>);
+            prefecturesOption.push(<option key={i + 1}>{prefectures[i]}</option>);
           }
           return <select className="ms-3" style={inputStyle} value={pref} onChange={(v) => setPref(v.target.value)}>{prefecturesOption}</select>;
         })()}
