@@ -3,20 +3,20 @@
 
 const awsmobile = {
     "aws_project_region": "ap-northeast-1",
-    "aws_appsync_graphqlEndpoint": "https://z3zxliapefcxhm6funklfe6fce.appsync-api.ap-northeast-1.amazonaws.com/graphql",
+    "aws_appsync_graphqlEndpoint": "https://pqrig6hweba6voyfrt3zyaqdm4.appsync-api.ap-northeast-1.amazonaws.com/graphql",
     "aws_appsync_region": "ap-northeast-1",
     "aws_appsync_authenticationType": "API_KEY",
-    "aws_appsync_apiKey": "da2-wzqykicgifac5lffsbxhfzh4uu",
-    "aws_cognito_identity_pool_id": "ap-northeast-1:80d5f2d6-eb0c-415c-b4b6-d6496d7a08d7",
+    "aws_appsync_apiKey": "da2-hgikczwoz5gktfwdc4mkfvvrfu",
+    "aws_cognito_identity_pool_id": "ap-northeast-1:400b7f90-47fc-4a64-8330-e54d8109bc74",
     "aws_cognito_region": "ap-northeast-1",
-    "aws_user_pools_id": "ap-northeast-1_J9pU6sT8h",
-    "aws_user_pools_web_client_id": "6usv1bn3e6hmgpkse4jcd3tgol",
+    "aws_user_pools_id": "ap-northeast-1_SSkqqrqZD",
+    "aws_user_pools_web_client_id": "ajtmaerv6q3gmsls2odksrs5t",
     "oauth": {},
-    "aws_cognito_username_attributes": [
+    "aws_cognito_username_attributes": [],
+    "aws_cognito_social_providers": [],
+    "aws_cognito_signup_attributes": [
         "EMAIL"
     ],
-    "aws_cognito_social_providers": [],
-    "aws_cognito_signup_attributes": [],
     "aws_cognito_mfa_configuration": "OFF",
     "aws_cognito_mfa_types": [
         "SMS"
@@ -33,7 +33,7 @@ const awsmobile = {
     "aws_cognito_verification_mechanisms": [
         "EMAIL"
     ],
-    "aws_user_files_s3_bucket": "react-jst-storage-f523d6c050145-staging",
+    "aws_user_files_s3_bucket": "bcc-app-storage-dev45624-takemoto",
     "aws_user_files_s3_bucket_region": "ap-northeast-1"
 };
 
