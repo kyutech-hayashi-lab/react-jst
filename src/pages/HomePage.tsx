@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import EventCard from '../components/units/EventCard';
 import DateSearch from '../components/DateSearch';
-import { eventSelector, eventStatusSelector, fetchEvents } from '../ducks/eventsSlice';
+import { eventFilteredSelector, eventStatusSelector, fetchEvents } from '../ducks/eventsSlice';
 import { useAppDispatch, useAppSelector } from '../ducks/hooks';
+import Header from '../components/Header';
 
 export default function HomePage() {
   const dispatch = useAppDispatch();
-  const events = useAppSelector(eventSelector);
+  const [pref, setPref] = useState<string>('');
+  const [date, setDate] = useState<Date | null>(null);
+  const events = useAppSelector((state) => eventFilteredSelector(state, pref, date));
   const eventsSorted = [...events];
   eventsSorted.sort((a, b) => {
     if (a.date > b.date) {
@@ -21,31 +24,23 @@ export default function HomePage() {
       void dispatch(fetchEvents());
     }
   }, [eventsStatus, dispatch]);
-  const [startDate, setStartDate] = useState(new Date());
   const navigate = useNavigate();
   return (
     <>
-      <img src="/top-image.png" alt="海の画像" style={{ width: '100%', height: '300px', objectFit: 'cover' }} />
-      <div style={{ width: '25%', height: '70px', backgroundColor: 'rgba(157,204,224,0.3)' }}>
-        <div style={{ width: '200px', marginLeft: 'auto' }}>
-          <h3 style={{ fontWeight: 'bold', padding: '16px' }}>イベント一覧</h3>
-        </div>
-      </div>
+      <Header />
       <div className="d-flex justify-content-center mt-5">
-        <div className="row" style={{ width: '90em' }}>
-          <div className="col-3">
-            <DateSearch startDate={startDate} setStartDate={setStartDate} />
+        <div className="row pt-5 mt-5" style={{ width: '90em' }}>
+          <div className="col-4">
+            <DateSearch className="ms-5 position-fixed" date={date} setDate={setDate} pref={pref} setPref={setPref} />
           </div>
-          <div className="col-9">
+          <div className="col-8">
             {eventsSorted.map((event) => (
               <EventCard
                 key={event.id}
                 title={event.title}
                 description={event.description}
-                place={event.place.name}
+                place={event.Place.name}
                 date={event.date}
-                startTime={event.startTime}
-                imgSrc={event.imagePath}
                 onClick={() => { navigate(`/event/${event.id}`); }}
               />
             ))}

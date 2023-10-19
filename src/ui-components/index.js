@@ -5,5 +5,5 @@
  **************************************************************************/
 
 export { default as studioTheme } from "./studioTheme";
-export { default as PlaceCreateForm } from "./PlaceCreateForm";
-export { default as PlaceUpdateForm } from "./PlaceUpdateForm";
+export { default as LabelCreateForm } from "./LabelCreateForm";
+export { default as LabelUpdateForm } from "./LabelUpdateForm";

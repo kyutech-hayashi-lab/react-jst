@@ -1,23 +1,22 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import { HiOutlineMenu } from 'react-icons/hi';
 
 export default function Header() {
+  const buttonStyle = {
+    width: 120,
+    border: 0,
+    background: 'transparent',
+  };
   return (
-    <Navbar className="sticky-top" bg="white" expand="lg">
-      <Container>
-        <Navbar.Brand href="/">ビーチクリーンクラウドサービス</Navbar.Brand>
-        <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-end">
-          <Nav.Link className="text-black me-4" href="https://devel.d259mard8ld388.amplifyapp.com">
-            ゴミ検出アプリ
-          </Nav.Link>
-          <Nav.Link className="text-black" href="/form">
-            イベント投稿はこちら
-          </Nav.Link>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <div className="d-flex px-2 border-bottom border-2 position-fixed w-100 bg-white top-0">
+      <h3 className="mt-4 ms-5"><strong>ビーチクリーンクラウドサービス</strong></h3>
+      <div className="ms-auto me-4 mt-3">
+        <a href="/form" className="text-dark me-3">イベント主催者はこちら</a>
+        <button type="button" style={buttonStyle} className="mt-5 ms-auto d-flex align-items-center">
+          <span>メニュー</span>
+          <h2 className="ms-2"><HiOutlineMenu /></h2>
+        </button>
+      </div>
+    </div>
   );
 }

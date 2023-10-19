@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { API, graphqlOperation } from 'aws-amplify';
 import { GraphQLResult } from '@aws-amplify/api';
+import { format } from 'date-fns';
 import { Event, ListEventsQuery } from '../API';
 import { listEvents } from '../graphql/queries';
 
@@ -40,8 +41,21 @@ export const eventsSlice = createSlice({
 type eventState = ReturnType<typeof eventsSlice.getInitialState>
 export const eventSelector = (state:{events: eventState}) => state.events.events;
 export const eventStatusSelector = (state:{events: eventState}) => state.events.status;
-export const eventSelectorById = (state:
-  {events: eventState}, id: string) => state.events.events.find(
-  (event) => event.id === id,
+export const eventFilteredSelector = (
+  state:{events: eventState},
+  pref: string,
+  date: Date | null,
+) => state.events.events.filter(
+  (event) => {
+    const eventPref = event.Place.address.replace(/^(.{2}[都道府県]|.{3}県)(.+)/, '$1 $2').split(' ')[0];
+    // prefが選択ない場合と選択したprefと同じ場合true
+    const isSamePref = !pref || eventPref === pref;
+    const isSameDate = !date || event.date === format(date, 'yyyy-MM-dd');
+    return isSamePref && isSameDate;
+  },
 );
+export const eventDateSelector = (
+  state:{events: eventState},
+) => state.events.events.map((event) => new Date(event.date));
+
 export default eventsSlice.reducer;

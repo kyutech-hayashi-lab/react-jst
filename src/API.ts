@@ -8,7 +8,7 @@ export type CreateEventInput = {
   description: string,
   date: string,
   startTime: string,
-  imagePath?: string | null,
+  authID: string,
   placeID: string,
   _version?: number | null,
 };
@@ -18,7 +18,7 @@ export type ModelEventConditionInput = {
   description?: ModelStringInput | null,
   date?: ModelStringInput | null,
   startTime?: ModelStringInput | null,
-  imagePath?: ModelStringInput | null,
+  authID?: ModelStringInput | null,
   placeID?: ModelIDInput | null,
   and?: Array< ModelEventConditionInput | null > | null,
   or?: Array< ModelEventConditionInput | null > | null,
@@ -88,9 +88,9 @@ export type Event = {
   description: string,
   date: string,
   startTime: string,
-  imagePath?: string | null,
+  authID: string,
   placeID: string,
-  place: Place,
+  Place: Place,
   createdAt: string,
   updatedAt: string,
   _version: number,
@@ -127,7 +127,7 @@ export type UpdateEventInput = {
   description?: string | null,
   date?: string | null,
   startTime?: string | null,
-  imagePath?: string | null,
+  authID?: string | null,
   placeID?: string | null,
   _version?: number | null,
 };
@@ -191,7 +191,7 @@ export type ModelEventFilterInput = {
   description?: ModelStringInput | null,
   date?: ModelStringInput | null,
   startTime?: ModelStringInput | null,
-  imagePath?: ModelStringInput | null,
+  authID?: ModelStringInput | null,
   placeID?: ModelIDInput | null,
   and?: Array< ModelEventFilterInput | null > | null,
   or?: Array< ModelEventFilterInput | null > | null,
@@ -223,7 +223,7 @@ export type ModelSubscriptionEventFilterInput = {
   description?: ModelSubscriptionStringInput | null,
   date?: ModelSubscriptionStringInput | null,
   startTime?: ModelSubscriptionStringInput | null,
-  imagePath?: ModelSubscriptionStringInput | null,
+  authID?: ModelSubscriptionStringInput | null,
   placeID?: ModelSubscriptionIDInput | null,
   and?: Array< ModelSubscriptionEventFilterInput | null > | null,
   or?: Array< ModelSubscriptionEventFilterInput | null > | null,
@@ -295,9 +295,9 @@ export type CreateEventMutation = {
     description: string,
     date: string,
     startTime: string,
-    imagePath?: string | null,
+    authID?: string | null,
     placeID: string,
-    place:  {
+    Place:  {
       __typename: "Place",
       id: string,
       name: string,
@@ -332,9 +332,9 @@ export type UpdateEventMutation = {
     description: string,
     date: string,
     startTime: string,
-    imagePath?: string | null,
+    authID?: string | null,
     placeID: string,
-    place:  {
+    Place:  {
       __typename: "Place",
       id: string,
       name: string,
@@ -369,9 +369,9 @@ export type DeleteEventMutation = {
     description: string,
     date: string,
     startTime: string,
-    imagePath?: string | null,
+    authID?: string | null,
     placeID: string,
-    place:  {
+    Place:  {
       __typename: "Place",
       id: string,
       name: string,
@@ -486,9 +486,9 @@ export type GetEventQuery = {
     description: string,
     date: string,
     startTime: string,
-    imagePath?: string | null,
+    authID?: string | null,
     placeID: string,
-    place:  {
+    Place:  {
       __typename: "Place",
       id: string,
       name: string,
@@ -526,7 +526,7 @@ export type ListEventsQuery = {
       description: string,
       date: string,
       startTime: string,
-      imagePath?: string | null,
+      authID?: string | null,
       placeID: string,
       createdAt: string,
       updatedAt: string,
@@ -556,7 +556,7 @@ export type SyncEventsQuery = {
       description: string,
       date: string,
       startTime: string,
-      imagePath?: string | null,
+      authID?: string | null,
       placeID: string,
       createdAt: string,
       updatedAt: string,
@@ -664,9 +664,9 @@ export type OnCreateEventSubscription = {
     description: string,
     date: string,
     startTime: string,
-    imagePath?: string | null,
+    authID?: string | null,
     placeID: string,
-    place:  {
+    Place:  {
       __typename: "Place",
       id: string,
       name: string,
@@ -700,9 +700,9 @@ export type OnUpdateEventSubscription = {
     description: string,
     date: string,
     startTime: string,
-    imagePath?: string | null,
+    authID?: string | null,
     placeID: string,
-    place:  {
+    Place:  {
       __typename: "Place",
       id: string,
       name: string,
@@ -736,9 +736,9 @@ export type OnDeleteEventSubscription = {
     description: string,
     date: string,
     startTime: string,
-    imagePath?: string | null,
+    authID?: string | null,
     placeID: string,
-    place:  {
+    Place:  {
       __typename: "Place",
       id: string,
       name: string,

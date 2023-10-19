@@ -4,9 +4,11 @@ import { schema } from './schema';
 
 
 
-const { Event, Place } = initSchema(schema);
+const { Label, Photo, ModelAndIndex, Rect } = initSchema(schema);
 
 export {
-  Event,
-  Place
+  Label,
+  Photo,
+  ModelAndIndex,
+  Rect
 };
