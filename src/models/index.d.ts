@@ -1,6 +1,6 @@
 import { ModelInit, MutableModel } from "@aws-amplify/datastore";
 // @ts-ignore
-import { LazyLoading, LazyLoadingDisabled, AsyncCollection, AsyncItem } from "@aws-amplify/datastore";
+import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
 
 type EagerModelAndIndex = {
   readonly name: string;
@@ -30,77 +30,11 @@ export declare type Rect = LazyLoading extends LazyLoadingDisabled ? EagerRect :
 
 export declare const Rect: (new (init: ModelInit<Rect>) => Rect)
 
-type PlaceMetaData = {
-  readOnlyFields: 'createdAt' | 'updatedAt';
-}
-
-type EventMetaData = {
-  readOnlyFields: 'createdAt' | 'updatedAt';
-}
-
 type LabelMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
 
-
-type EagerPlace = {
-  readonly id: string;
-  readonly name: string;
-  readonly latitude: number;
-  readonly longitude: number;
-  readonly postCode: string;
-  readonly address: string;
-  readonly Events?: (Event | null)[] | null;
-  readonly createdAt?: string | null;
-  readonly updatedAt?: string | null;
-}
-
-type LazyPlace = {
-  readonly id: string;
-  readonly name: string;
-  readonly latitude: number;
-  readonly longitude: number;
-  readonly postCode: string;
-  readonly address: string;
-  readonly Events: AsyncCollection<Event>;
-  readonly createdAt?: string | null;
-  readonly updatedAt?: string | null;
-}
-
-export declare type Place = LazyLoading extends LazyLoadingDisabled ? EagerPlace : LazyPlace
-
-export declare const Place: (new (init: ModelInit<Place, PlaceMetaData>) => Place) & {
-  copyOf(source: Place, mutator: (draft: MutableModel<Place, PlaceMetaData>) => MutableModel<Place, PlaceMetaData> | void): Place;
-}
-
-type EagerEvent = {
-  readonly id: string;
-  readonly title: string;
-  readonly description: string;
-  readonly date: string;
-  readonly startTime: string;
-  readonly Place: Place;
-  readonly createdAt?: string | null;
-  readonly updatedAt?: string | null;
-}
-
-type LazyEvent = {
-  readonly id: string;
-  readonly title: string;
-  readonly description: string;
-  readonly date: string;
-  readonly startTime: string;
-  readonly Place: AsyncItem<Place>;
-  readonly createdAt?: string | null;
-  readonly updatedAt?: string | null;
-}
-
-export declare type Event = LazyLoading extends LazyLoadingDisabled ? EagerEvent : LazyEvent
-
-export declare const Event: (new (init: ModelInit<Event, EventMetaData>) => Event) & {
-  copyOf(source: Event, mutator: (draft: MutableModel<Event, EventMetaData>) => MutableModel<Event, EventMetaData> | void): Event;
-}
 
 type EagerLabel = {
   readonly id: string;

@@ -4,6 +4,7 @@ import LabelBorder from '../components/atoms/LabelBorder';
 import { eventSelector, eventStatusSelector, fetchEvents } from '../ducks/eventsSlice';
 import { useAppDispatch, useAppSelector } from '../ducks/hooks';
 import AccessInfo from '../components/AccessInfo';
+import ResultChart from '../components/ResultChart';
 
 export default function EventPage() {
   const dispatch = useAppDispatch();
@@ -24,43 +25,31 @@ export default function EventPage() {
   }
 
   return (
-    <div className="d-flex justify-content-center my-5">
-      <div>
-        <div className="d-flex">
-          <h1 className="fw-bold">{event.title}</h1>
-        </div>
-        <div
-          className="m-auto mb-2 border-radius"
-          style={{
-            overflow: 'hidden',
-            width: '100%',
-            height: '300px',
-          }}
-        >
-          { event.imagePath
-      && (
-        <img
-          src={event.imagePath}
-          alt="イベント画像"
-          style={{
-            minWidth: '100%',
-            minHeight: '100%',
-          }}
-        />
-      )}
-        </div>
-        <LabelBorder label="説明" />
-        <span>{event.description}</span>
-        <LabelBorder label="日時" />
-        <span>
-          {event.date}
-          {event.startTime}
-        </span>
-        <LabelBorder label="アクセス" />
-        <AccessInfo
-          place={event.Place}
-        />
+    <>
+      <div className="ms-5 mt-3">
+        <a href="/" className="text-black-50">ホームに戻る</a>
       </div>
-    </div>
+      <div className="mx-5 my-4">
+        <div>
+          <div className="d-flex">
+            <h1 className="fw-bold">{event.title}</h1>
+          </div>
+          <LabelBorder label="説明" />
+          <span>{event.description}</span>
+          <LabelBorder label="日時" />
+          <span>
+            {`${event.date} ${event.startTime}〜`}
+          </span>
+          <LabelBorder label="アクセス" />
+          <AccessInfo
+            place={event.Place}
+          />
+        </div>
+        <LabelBorder label="結果" />
+        <div>
+          <ResultChart authID={event.authID} />
+        </div>
+      </div>
+    </>
   );
 }

@@ -10,6 +10,7 @@ export const getEvent = /* GraphQL */ `
       description
       date
       startTime
+      authID
       placeID
       Place {
         id
@@ -45,6 +46,7 @@ export const listEvents = /* GraphQL */ `
         description
         date
         startTime
+        authID
         placeID
         Place {
           id
@@ -89,6 +91,7 @@ export const syncEvents = /* GraphQL */ `
         description
         date
         startTime
+        authID
         placeID
         createdAt
         updatedAt

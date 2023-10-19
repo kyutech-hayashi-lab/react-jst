@@ -22,7 +22,7 @@ export default function EventForm() {
     description: '',
     date: '',
     startTime: '',
-    imagePath: 'https://hoge.com',
+    authID: '',
     placeID: '',
   });
 

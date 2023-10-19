@@ -10,6 +10,7 @@ export const onCreateEvent = /* GraphQL */ `
       description
       date
       startTime
+      authID
       placeID
       Place {
         id
@@ -40,6 +41,7 @@ export const onUpdateEvent = /* GraphQL */ `
       description
       date
       startTime
+      authID
       placeID
       Place {
         id
@@ -70,6 +72,7 @@ export const onDeleteEvent = /* GraphQL */ `
       description
       date
       startTime
+      authID
       placeID
       Place {
         id

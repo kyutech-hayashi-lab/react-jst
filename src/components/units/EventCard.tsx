@@ -12,10 +12,23 @@ export default function EventCard(props: {
   const { title, description, place, date, onClick } = props;
   const [color, setColor] = useState('white');
 
+  const containerStyle = {
+    width: '400px',
+    height: '200px',
+    backgroundColor: color,
+    overflow: 'hidden',
+  };
+
+  const descriptionStyle = {
+    height: '80px',
+    overflow: 'hidden',
+    fontSize: '14px',
+  };
+
   return (
     <div
-      className="p-4 rounded"
-      style={{ width: '400px', height: '200px', backgroundColor: color }}
+      className="p-2 mt-2 rounded"
+      style={containerStyle}
       onClick={onClick}
       onMouseLeave={() => { setColor('white'); }}
       onMouseEnter={() => { setColor('#e5e5e5'); }}
@@ -28,7 +41,9 @@ export default function EventCard(props: {
         <BiMap />
         <span className="ms-2"><small>{place}</small></span>
         <h6 className="mt-2"><u>{title}</u></h6>
-        <p className="text-black-50"><small>{description}</small></p>
+        <div className="text-black-50" style={descriptionStyle}>
+          {description}
+        </div>
       </div>
     </div>
   );

@@ -13,6 +13,7 @@ export const createEvent = /* GraphQL */ `
       description
       date
       startTime
+      authID
       placeID
       Place {
         id
@@ -46,6 +47,7 @@ export const updateEvent = /* GraphQL */ `
       description
       date
       startTime
+      authID
       placeID
       Place {
         id
@@ -79,6 +81,7 @@ export const deleteEvent = /* GraphQL */ `
       description
       date
       startTime
+      authID
       placeID
       Place {
         id
